@@ -5,7 +5,18 @@ class TaskManager {
     }
 
     // Add a new task
-   
+    addTask(title, priority = 'medium') {
+        const task = {
+            id: Date.now(),
+            title,
+            priority,
+            completed: false,
+            createdAt: new Date()
+        };
+        this.tasks.push(task);
+        return task;
+    }
+
     // Remove a task by ID
     removeTask(taskId) {
         const index = this.tasks.findIndex(task => task.id === taskId);
